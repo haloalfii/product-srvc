@@ -1,4 +1,6 @@
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -7,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 const productRoute = require("./routes/product.route");
 
 // API Route
-app.use(express.json())
+app.use(express.json(), cors());
 app.use('/api/products', productRoute);
 
 app.get('/', (req, res) => {
