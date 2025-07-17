@@ -11,7 +11,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = "mysql://root:Night@localhost:3306/product_srvc"
+  url      = env("DATABASE_URL")
 }
 
 model Product {
