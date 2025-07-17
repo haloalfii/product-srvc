@@ -10,3 +10,22 @@ exports.getProductById = async (id) => {
         where: {id}
     });
 }
+
+exports.createProduct = async (name, price, stock) => {
+    return await prisma.product.create({
+        data: { name, price, stock }
+    });
+}
+
+exports.updateProduct = async (id, data) => {
+    return await prisma.product.update({
+        where: {id},
+        data,
+    });
+}
+
+exports.deleteProduct = async (id) => {
+    return await prisma.product.delete({
+        where: {id}
+    });
+}
