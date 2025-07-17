@@ -1,12 +1,17 @@
 const express = require('express');
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
+// Import Route
+const productRoute = require("./routes/product.route");
+
+// API Route
+app.use('/api/products', productRoute);
 
 app.get('/', (req, res) => {
-    res.send('halo Dunia');
+    res.send('Product Service is Running');
 });
-
 app.listen(PORT, () => {
     console.log('APP Running');
 })
